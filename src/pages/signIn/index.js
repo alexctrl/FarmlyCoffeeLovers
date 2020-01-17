@@ -49,27 +49,30 @@ export default class SignIn extends Component {
   };
 
   handleSignInPress = async () => {
-    if (this.state.email.length === 0 || this.state.password.length === 0) {
-      this.setState({ error: 'Preencha usuário e senha para continuar!' }, () => false);
-    } else {
-      try {
-        const response = await api.post('/sessions', {
-          email: this.state.email,
-          password: this.state.password,
-        });
-
-        const resetAction = StackActions.reset({
-          index: 0,
-          actions: [
-            NavigationActions.navigate({ routeName: 'Main', params: { token: response.data.token } }),
-          ],
-        });
-        this.props.navigation.dispatch(resetAction);
-      } catch (_err) {
-        this.setState({ error: 'Houve um problema com o login, verifique suas credenciais!' + _err });
-      }
-    }
+    this.props.navigation.navigate('Main');
   };
+  // handleSignInPress = async () => {
+  //   if (this.state.email.length === 0 || this.state.password.length === 0) {
+  //     this.setState({ error: 'Preencha usuário e senha para continuar!' }, () => false);
+  //   } else {
+  //     try {
+  //       const response = await api.post('/sessions', {
+  //         email: this.state.email,
+  //         password: this.state.password,
+  //       });
+
+  //       const resetAction = StackActions.reset({
+  //         index: 0,
+  //         actions: [
+  //           NavigationActions.navigate({ routeName: 'Main', params: { token: response.data.token } }),
+  //         ],
+  //       });
+  //       this.props.navigation.dispatch(resetAction);
+  //     } catch (_err) {
+  //       this.setState({ error: 'Houve um problema com o login, verifique suas credenciais!' + _err });
+  //     }
+  //   }
+  // };
 
   render() {
     return (

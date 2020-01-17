@@ -17,6 +17,9 @@ import {
   SignUpLink,
   SignUpLinkText,
   Subtitle,
+  Footer,
+  OutsideBox,
+  TabButton,
 } from './styles';
 
 export default class Main extends Component {
@@ -31,41 +34,41 @@ export default class Main extends Component {
     }).isRequired,
   };
 
-  takePicture = async () => {
-    if (this.camera) {
-      const options = { quality: 0.5, base64: true };
-      const data = await this.camera.takePictureAsync(options)
-      alert(data.uri);
-    }
-  }
+  handleAddCoffee = async () => {
+    this.props.navigation.navigate('AddCoffee');
+  };
+  handleFeed = async () => {
+    this.props.navigation.navigate('Feed');
+  };
+  handleMyProfile = async () => {
+    this.props.navigation.navigate('MyProfile');
+  };
 
   render() {
     return (
-      <Container>
-        <StatusBar hidden />
-        <Logo source={require('../../images/logo-light-green.png')} resizeMode="contain" />
-        <Subtitle>For coffee lovers</Subtitle>
-        <View style={styles.container}>
-          <RNCamera
-            ref={camera => {
-              this.camera = camera;
-            }}
-            style={styles.preview}
-            type={RNCamera.Constants.Type.back}
-            autoFocus={RNCamera.Constants.AutoFocus.on}
-            flashMode={RNCamera.Constants.FlashMode.off}
-            permissionDialogTitle={"Permission to use camera"}
-            permissionDialogMessage={
-              "We need your permission to use your camera phone"
-            }
-          />
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity onPress={this.takePicture} style={styles.capture}>
-              <Text style={styles.buttonText}> SNAP </Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </Container>
+      <OutsideBox>
+        <Container>
+          <StatusBar hidden />
+          <Logo source={require('../../images/logo-light-green.png')} resizeMode = "contain" />
+          <Subtitle>For coffee lovers</Subtitle>
+          <Button onPress={this.handleAddCoffee}>
+            <ButtonText>Goto Add a coffee</ButtonText>
+          </Button>
+          
+        </Container>
+        <Footer>
+          <TabButton onPress={this.handleAddCoffee}>
+            <ButtonText>Feed</ButtonText>
+          </TabButton>
+          <TabButton onPress={this.handleFeed}>
+            <ButtonText>Add coffee</ButtonText>
+          </TabButton>
+          <TabButton onPress={this.handleMyProfile}>
+            <ButtonText>User</ButtonText>
+          </TabButton>        
+        </Footer>
+      </OutsideBox>
+      
     );
   }
 }

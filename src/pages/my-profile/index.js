@@ -17,9 +17,12 @@ import {
   SignUpLink,
   SignUpLinkText,
   Subtitle,
+  Footer,
+  OutsideBox,
+  TabButton,
 } from './styles';
 
-export default class Feed extends Component {
+export default class MyProfile extends Component {
   static navigationOptions = {
     headerShown: false,
   };
@@ -31,15 +34,14 @@ export default class Feed extends Component {
     }).isRequired,
   };
 
-
   handleAddCoffee = async () => {
     this.props.navigation.navigate('AddCoffee');
   };
-  handleAddCoffee = async () => {
+  handleFeed = async () => {
     this.props.navigation.navigate('Feed');
   };
-  handleAddCoffee = async () => {
-    this.props.navigation.navigate('AddCoffee');
+  handleMyProfile = async () => {
+    this.props.navigation.navigate('MyProfile');
   };
 
   render() {
@@ -48,7 +50,7 @@ export default class Feed extends Component {
         <Container>
           <StatusBar hidden />
           <Logo source={require('../../images/logo-light-green.png')} resizeMode = "contain" />
-          <Subtitle>The feed page</Subtitle>
+          <Subtitle>For coffee lovers</Subtitle>
           <Button onPress={this.handleAddCoffee}>
             <ButtonText>Goto Add a coffee</ButtonText>
           </Button>
@@ -58,10 +60,10 @@ export default class Feed extends Component {
           <TabButton onPress={this.handleAddCoffee}>
             <ButtonText>Feed</ButtonText>
           </TabButton>
-          <TabButton onPress={this.handleAddCoffee}>
+          <TabButton onPress={this.handleFeed}>
             <ButtonText>Add coffee</ButtonText>
           </TabButton>
-          <TabButton onPress={this.handleAddCoffee}>
+          <TabButton onPress={this.handleMyProfile}>
             <ButtonText>User</ButtonText>
           </TabButton>        
         </Footer>
@@ -70,3 +72,33 @@ export default class Feed extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: "column",
+    backgroundColor: "black"
+  },
+  preview: {
+    flex: 1,
+    justifyContent: "flex-end",
+    alignItems: "center"
+  },
+  buttonContainer: {
+    flex: 0,
+    flexDirection: "row",
+    justifyContent: "center"
+  },
+  capture: {
+    flex: 0,
+    backgroundColor: "#fff",
+    borderRadius: 5,
+    padding: 15,
+    paddingHorizontal: 20,
+    alignSelf: "center",
+    margin: 20
+  },
+  buttonText: {
+    fontSize: 14
+  }
+});

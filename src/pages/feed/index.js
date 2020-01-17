@@ -35,11 +35,11 @@ export default class Feed extends Component {
   handleAddCoffee = async () => {
     this.props.navigation.navigate('AddCoffee');
   };
-  handleAddCoffee = async () => {
+  handleFeed = async () => {
     this.props.navigation.navigate('Feed');
   };
-  handleAddCoffee = async () => {
-    this.props.navigation.navigate('AddCoffee');
+  handleMyProfile = async () => {
+    this.props.navigation.navigate('MyProfile');
   };
 
   render() {
@@ -48,7 +48,7 @@ export default class Feed extends Component {
         <Container>
           <StatusBar hidden />
           <Logo source={require('../../images/logo-light-green.png')} resizeMode = "contain" />
-          <Subtitle>The feed page</Subtitle>
+          <Subtitle>the main page </Subtitle>
           <Button onPress={this.handleAddCoffee}>
             <ButtonText>Goto Add a coffee</ButtonText>
           </Button>
@@ -58,10 +58,10 @@ export default class Feed extends Component {
           <TabButton onPress={this.handleAddCoffee}>
             <ButtonText>Feed</ButtonText>
           </TabButton>
-          <TabButton onPress={this.handleAddCoffee}>
+          <TabButton onPress={this.handleFeed}>
             <ButtonText>Add coffee</ButtonText>
           </TabButton>
-          <TabButton onPress={this.handleAddCoffee}>
+          <TabButton onPress={this.handleMyProfile}>
             <ButtonText>User</ButtonText>
           </TabButton>        
         </Footer>

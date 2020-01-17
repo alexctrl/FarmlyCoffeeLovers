@@ -50,7 +50,7 @@ export default class Main extends Component {
         <Container>
           <StatusBar hidden />
           <Logo source={require('../../images/logo-light-green.png')} resizeMode = "contain" />
-          <Subtitle>For coffee lovers</Subtitle>
+          <Subtitle>the main page </Subtitle>
           <Button onPress={this.handleAddCoffee}>
             <ButtonText>Goto Add a coffee</ButtonText>
           </Button>

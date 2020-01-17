@@ -1,10 +1,29 @@
 import styled from 'styled-components';
 
-const Container = styled.View`
-  flex: 1;
+const OutsideBox = styled.View`
   alignItems: center;
   justifyContent: center;
-  backgroundColor: #F5F5F5;
+  backgroundColor: #F5F;
+`;
+
+const Container = styled.View`
+  height: 100%;
+  alignItems: center;
+  justifyContent: center;
+  /* backgroundColor: #F5F5F5; */
+`;
+
+const Footer = styled.View`
+  /* alignItems: center; */
+  /* justifyContent: center; */
+  /* flex: 1; */
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:60px;   /* Height of the footer */
+  background:#6cf;
+  align-items: center;
+  flex-direction: row;
 `;
 
 const Logo = styled.Image`
@@ -49,6 +68,15 @@ const Button = styled.TouchableHighlight`
   marginHorizontal: 20px;
 `;
 
+const TabButton = styled.TouchableHighlight`
+
+  background-color: #EEE;
+  width:34%;
+  padding-bottom:10px;
+  padding-top:10px;
+  flex
+`;
+
 const ButtonText = styled.Text`
   color: #FFF;
   fontWeight: bold;
@@ -68,4 +96,8 @@ const SignUpLinkText = styled.Text`
   textAlign: center;
 `;
 
-export { Container, Logo, Input, ErrorMessage, Button, ButtonText, SignUpLink, SignUpLinkText, Subtitle };
+export { 
+  Container, Logo, Input, ErrorMessage, Button, 
+  ButtonText, SignUpLink, SignUpLinkText, Subtitle, 
+  Footer, OutsideBox, TabButton
+};
